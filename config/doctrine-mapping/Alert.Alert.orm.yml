@@ -1,0 +1,26 @@
+Emporium\Svc\Alert\Model\Alert\Alert:
+    type: entity
+    table: alerts
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    indexes:
+        created_at_index: { columns: [created_at] }
+        category_index: { columns: [category] }
+        severity_index: { columns: [severity] }
+    fields:
+        msg:
+            type: string
+        category:
+            type: string
+        severity:
+            type: smallint
+        payload:
+            type: json_array
+        created_at:
+             type: datetime
+        processed_at:
+             type: datetime
+             nullable: TRUE

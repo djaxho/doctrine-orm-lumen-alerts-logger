@@ -1,0 +1,18 @@
+Emporium\Svc\Alert\Model\Report\Report:
+    type: entity
+    table: reports
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    indexes:
+        created_at_index: { columns: [created_at] }
+    fields:
+        name:
+            type: string
+        query:
+            type: string
+            length: 512
+        created_at:
+             type: datetime

@@ -1,0 +1,26 @@
+Emporium\Svc\Alert\Model\Subscription\Subscription:
+    type: entity
+    table: subscriptions
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    indexes:
+        created_at_index: { columns: [created_at] }
+        category_index: { columns: [category] }
+        severity_index: { columns: [severity] }
+    fields:
+        category:
+            type: string
+        severity:
+            type: smallint
+        created_at:
+             type: datetime
+    manyToOne:
+        subscriber:
+            targetEntity: Emporium\Svc\Alert\Model\Subscriber\Subscriber
+            inversedBy: subscriptions
+            joinColumn:
+                name: subscriber_id
+                referencedColumnName: id

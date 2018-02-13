@@ -1,0 +1,9 @@
+.idea
+*.iml
+out
+gen
+/GITHEAD
+.env
+/etc/mysql.env
+/vendor/
+/playground.php

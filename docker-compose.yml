@@ -1,0 +1,25 @@
+version: "2"
+
+services:
+    php:
+        image: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+        container_name: emporium-svc-alert-php
+        env_file: .env
+        volumes:
+            - .:/var/www/html
+            - ./etc/apache2-php/alert.conf:/etc/apache2/sites-enabled/alert.conf
+            - ./etc/apache2-php/php.ini:/usr/local/etc/php/php.ini
+        ports:
+            - "80:80"
+        restart: unless-stopped
+    mysql:
+        image: mariadb
+        container_name: emporium-svc-alert-mysql
+        env_file: ./etc/mysql.env
+        ports:
+            - "3306:3306"
+        restart: unless-stopped
+    redis:
+        image: redis
+        container_name: emporium-svc-alert-redis
+        restart: unless-stopped

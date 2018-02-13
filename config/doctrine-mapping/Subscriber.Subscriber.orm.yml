@@ -1,0 +1,23 @@
+Emporium\Svc\Alert\Model\Subscriber\Subscriber:
+    type: entity
+    table: subscribers
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    indexes:
+        email_index: { columns: [email] }
+        created_at_index: { columns: [created_at] }
+    fields:
+        email:
+            type: string
+            unique: true
+        name:
+            type: string
+        created_at:
+             type: datetime
+    oneToMany:
+        subscriptions:
+            targetEntity: Emporium\Svc\Alert\Model\Subscription\Subscription
+            mappedBy: subscriber
